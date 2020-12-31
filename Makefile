@@ -6,7 +6,7 @@
 #    By: vfurmane <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/30 19:06:20 by vfurmane          #+#    #+#              #
-#    Updated: 2020/12/30 19:06:21 by vfurmane         ###   ########.fr        #
+#    Updated: 2020/12/31 11:12:48 by vfurmane         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,12 +14,14 @@ SRCS		= $(addprefix test/tests/, ft_atoi_test.c)
 OBJS		= $(SRCS:.c=.o)
 EXEC		= $(OBJS:.o=.out)
 INCL		= test/includes
-LIBFT		= ../libft # Change this value according to the libft directory
+LIBFT		= ../libft
 CC			= gcc
 CFLAGS		= -Wall -Wextra -Werror
+CP			= cp -f
 RM			= rm -f
 
 %.o:		%.c
+			$(CP) $(LIBFT)/libft.h $(INCL)
 			$(CC) $(CFLAGS) -c $< -I $(INCL) -o $@
 
 %.out:		%.o
@@ -30,6 +32,7 @@ all:		$(EXEC)
 
 clean:
 			$(RM) $(OBJS)
+			$(RM) $(INCL)/libft.h
 
 fclean:		clean
 			$(RM) -r logs outs
