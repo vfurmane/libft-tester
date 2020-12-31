@@ -23,7 +23,7 @@ cd "$(dirname "$0")"
 source scripts/put.sh
 
 # List of every function to test
-funcs=$(find test/tests -maxdepth 1 -name "ft_*_test.c" -exec basename {} \;)
+funcs=$(find test/tests -maxdepth 1 -name "ft_*_test.c" -exec basename {} \; | sort)
 
 # Create the directory for test scripts and logs
 mkdir -p logs
