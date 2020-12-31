@@ -6,11 +6,11 @@
 #    By: vfurmane <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/30 19:06:20 by vfurmane          #+#    #+#              #
-#    Updated: 2020/12/31 11:12:48 by vfurmane         ###   ########.fr        #
+#    Updated: 2020/12/31 15:52:39 by vfurmane         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-SRCS		= $(addprefix test/tests/, ft_atoi_test.c)
+SRCS		= $(wildcard test/tests/ft_*_test.c)
 OBJS		= $(SRCS:.c=.o)
 EXEC		= $(OBJS:.o=.out)
 INCL		= test/includes
