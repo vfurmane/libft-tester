@@ -17,6 +17,9 @@
 # RED	\e[31m
 # GREEN	\e[32m
 
+# cd to the script's directory
+cd "$(dirname "$0")"
+
 source scripts/put.sh
 
 # List of every function to test
