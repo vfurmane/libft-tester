@@ -6,7 +6,7 @@
 /*   By: vfurmane <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/30 15:14:46 by vfurmane          #+#    #+#             */
-/*   Updated: 2020/12/30 19:06:54 by vfurmane         ###   ########.fr       */
+/*   Updated: 2020/12/31 15:44:06 by vfurmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,44 @@ void	ft_atoi_basic(void)
 	TEST_ASSERT_EQUAL_INT(atoi(str), ft_atoi(str));
 }
 
+void	ft_atoi_positive(void)
+{
+	char	*str = "+42";
+
+	TEST_ASSERT_EQUAL_INT(atoi(str), ft_atoi(str));
+}
+
 void	ft_atoi_negative(void)
 {
 	char	*str = "-42";
+
+	TEST_ASSERT_EQUAL_INT(atoi(str), ft_atoi(str));
+}
+
+void	ft_atoi_invalid_negative(void)
+{
+	char	*str = "--42";
+
+	TEST_ASSERT_EQUAL_INT(atoi(str), ft_atoi(str));
+}
+
+void	ft_atoi_whitespaces(void)
+{
+	char	*str = " \t\r\n\f\v42";
+
+	TEST_ASSERT_EQUAL_INT(atoi(str), ft_atoi(str));
+}
+
+void	ft_atoi_invalid_number(void)
+{
+	char	*str = "42a24";
+
+	TEST_ASSERT_EQUAL_INT(atoi(str), ft_atoi(str));
+}
+
+void	ft_atoi_int_limit(void)
+{
+	char	*str = "3000000000";
 
 	TEST_ASSERT_EQUAL_INT(atoi(str), ft_atoi(str));
 }
@@ -40,6 +75,11 @@ int		main(void)
 {
 	UNITY_BEGIN();
 	RUN_TEST(ft_atoi_basic);
+	RUN_TEST(ft_atoi_positive);
 	RUN_TEST(ft_atoi_negative);
+	RUN_TEST(ft_atoi_invalid_negative);
+	RUN_TEST(ft_atoi_whitespaces);
+	RUN_TEST(ft_atoi_invalid_number);
+	RUN_TEST(ft_atoi_int_limit);
 	return (UNITY_END());
 }
