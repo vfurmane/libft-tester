@@ -6,7 +6,7 @@
 #    By: vfurmane <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/30 19:06:20 by vfurmane          #+#    #+#              #
-#    Updated: 2020/12/31 15:52:39 by vfurmane         ###   ########.fr        #
+#    Updated: 2021/01/01 22:07:27 by vfurmane         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,9 @@ fclean:		clean
 			$(RM) -r logs outs
 
 re:			fclean all
+
+checkfile:
+			ls $(LIBFT)/$(FILE)
 
 .PHONY:		all clean fclean re
 .SECONDARY:	$(OBJS)

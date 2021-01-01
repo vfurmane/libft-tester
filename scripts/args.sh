@@ -19,6 +19,9 @@ do
 		--nologs)
 		NOLOGS=1
 		shift;;
+		-c|--check-files)
+		CHECKFILES=1
+		shift;;
 		*)
 		break;;
 	esac

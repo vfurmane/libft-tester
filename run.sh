@@ -22,6 +22,8 @@ cd "$(dirname "$0")"
 
 # Do not display logs if KO
 NOLOGS=0
+# Check that all the files are present
+CHECKFILES=0
 
 # List of every function to test
 funcs=()
@@ -65,6 +67,10 @@ do
 		fi
 	else
 		warn "Test file for $func doesn't exist"
+	fi
+	if [ $CHECKFILES -ne 0 ]
+	then
+		make checkfile FILE=ft_$func.c > /dev/null 2>&1 || warn "ft_$func.c file not found in the libft's directory"
 	fi
 done
 
