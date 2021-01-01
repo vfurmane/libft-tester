@@ -16,7 +16,7 @@
 while [ $# -gt 0 ]
 do
 	case $1 in
-		--nologs)
+		--no-logs)
 		NOLOGS=1
 		shift;;
 		-c|--check-files)
