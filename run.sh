@@ -39,7 +39,9 @@ make all > /dev/null 2>&1 || error "Error when compiling the tests"
 
 for func in $funcs
 do
+	# Execute the test program and write the logs into a dedicated file
 	./outs/$(basename -s '.c' $func).out > logs/$(basename $func | cut -d_ -f2).log
+	# Display OK or KO according to the test's returned value
 	if [ $? -eq 0 ]
 	then
 		ret_msg=$'\033[32mOK\033[0m'
@@ -47,6 +49,7 @@ do
 	else
 		ret_msg=$'\033[31mKO\033[0m'
 		printf "%-20s [%s]\n" $(basename $func | cut -d_ -f2) $ret_msg
+		# Display logs if not disabled with --nologs
 		if [ $NOLOGS -eq 0 ]
 		then
 			cat logs/$(basename $func | cut -d_ -f2).log
