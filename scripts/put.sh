@@ -18,3 +18,8 @@ function error()
 	printf "\033[31m$1\033[0m\n"
 	exit 1
 }
+
+function warn()
+{
+	printf "\033[33m$1\033[0m\n"
+}

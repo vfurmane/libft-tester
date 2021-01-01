@@ -19,5 +19,14 @@ do
 		--nologs)
 		NOLOGS=1
 		shift;;
+		*)
+		break;;
 	esac
+done
+
+# Parse function names
+while [ $# -gt 0 ]
+do
+	funcs+=("$1")
+	shift
 done
