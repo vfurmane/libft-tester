@@ -57,4 +57,4 @@ do
 	fi
 done
 
-make clean
+make clean > /dev/null 2>&1
