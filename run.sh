@@ -20,6 +20,12 @@
 # cd to the script's directory
 cd "$(dirname "$0")"
 
+# Do not display logs if KO
+NOLOGS=0
+
+# Parse arguments
+source scripts/args.sh
+# Message functions
 source scripts/put.sh
 
 # List of every function to test
@@ -37,8 +43,13 @@ do
 	if [ $? -eq 0 ]
 	then
 		ret_msg=$'\033[32mOK\033[0m'
+		printf "%-20s [%s]\n" $(basename $func | cut -d_ -f2) $ret_msg
 	else
 		ret_msg=$'\033[31mKO\033[0m'
+		printf "%-20s [%s]\n" $(basename $func | cut -d_ -f2) $ret_msg
+		if [ $NOLOGS -eq 0 ]
+		then
+			cat logs/$(basename $func | cut -d_ -f2).log
+		fi
 	fi
-	printf "%-20s [%s]\n" $(basename $func | cut -d_ -f2) $ret_msg
 done
