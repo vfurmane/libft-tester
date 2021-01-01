@@ -6,7 +6,7 @@
 /*   By: vfurmane <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/30 15:14:46 by vfurmane          #+#    #+#             */
-/*   Updated: 2021/01/01 14:15:33 by vfurmane         ###   ########.fr       */
+/*   Updated: 2021/01/01 21:50:10 by vfurmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,19 @@ void	ft_memccpy_invalid_byte_size(void)
 	TEST_ASSERT_EQUAL_MEMORY(ref, ret, len * sizeof(*ref));
 }
 
+void	ft_memccpy_char_overflow(void)
+{
+	int		len = 18;
+	char	*str = "Hello world and 42";
+	char	ref[18];
+	char	ret[18];
+
+	bzero(ref, len);
+	bzero(ret, len);
+	TEST_ASSERT_EQUAL_MEMORY(memccpy(ref, str, 353, len), ft_memccpy(ret, str, 353, len), 1);
+	TEST_ASSERT_EQUAL_MEMORY(ref, ret, len);
+}
+
 /* -------------------------------------------------------------------------- */
 
 void	setUp(void)
@@ -81,5 +94,6 @@ int		main(void)
 	RUN_TEST(ft_memccpy_no_end);
 	RUN_TEST(ft_memccpy_int_array);
 	RUN_TEST(ft_memccpy_invalid_byte_size);
+	RUN_TEST(ft_memccpy_char_overflow);
 	return (UNITY_END());
 }
