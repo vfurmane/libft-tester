@@ -6,7 +6,7 @@
 /*   By: vfurmane <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/30 15:14:46 by vfurmane          #+#    #+#             */
-/*   Updated: 2021/01/01 12:08:53 by vfurmane         ###   ########.fr       */
+/*   Updated: 2021/01/01 14:32:27 by vfurmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,12 @@ void	ft_memcpy_basic(void)
 {
 	int		len = 6;
 	char	*str = "Hello world and 42";
-	char	ref[6];
-	char	ret[6];
+	char	ref[18];
+	char	ret[18];
 
-	TEST_ASSERT_EQUAL_MEMORY(memcpy(ref, str, len), ft_memcpy(ret, str, len), len);
+	bzero(ref, 18);
+	bzero(ret, 18);
+	TEST_ASSERT_EQUAL_MEMORY(memcpy(ref, str, len), ft_memcpy(ret, str, len), 18);
 }
 
 void	ft_memcpy_right_overlap(void)

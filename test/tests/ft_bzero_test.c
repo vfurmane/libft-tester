@@ -6,7 +6,7 @@
 /*   By: vfurmane <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/30 15:14:46 by vfurmane          #+#    #+#             */
-/*   Updated: 2020/12/31 16:48:28 by vfurmane         ###   ########.fr       */
+/*   Updated: 2021/01/01 14:30:46 by vfurmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	ft_bzero_int_array(void)
 
 	bzero(ref, len);
 	ft_bzero(ret, len);
-	TEST_ASSERT_EQUAL_MEMORY(ref, ret, 10);
+	TEST_ASSERT_EQUAL_MEMORY(ref, ret, 10 * sizeof(*ref));
 }
 
 /* -------------------------------------------------------------------------- */
