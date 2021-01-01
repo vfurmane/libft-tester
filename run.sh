@@ -53,3 +53,5 @@ do
 		fi
 	fi
 done
+
+make clean
