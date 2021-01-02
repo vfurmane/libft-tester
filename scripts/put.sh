@@ -26,9 +26,10 @@ function warn()
 
 function usage()
 {
-	printf "%-13s./run.sh [-c|--no-logs]\n\n" "Usage:"
+	printf "%-13s./run.sh [-c|-h|--no-logs]\n\n" "Usage:"
 	printf "options:\n"
 	printf "%-13sCheck that the tested function is in the right file.\n" "c"
+	printf "%-13sDisplay a help message.\n" "h"
 	printf "%-13sDo not display error logs if a test fails.\n" "no-logs"
 	printf "\n"
 	exit 0;
