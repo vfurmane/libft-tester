@@ -6,7 +6,7 @@
 /*   By: vfurmane <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/30 15:14:46 by vfurmane          #+#    #+#             */
-/*   Updated: 2021/01/02 10:10:51 by vfurmane         ###   ########.fr       */
+/*   Updated: 2021/01/02 10:29:54 by vfurmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,15 @@ void	ft_memchr_int_array(void)
 	TEST_ASSERT_EQUAL_PTR(memchr(arr, 234, 7 * sizeof(*arr)), ft_memchr(arr, 234, 7 * sizeof(*arr)));
 }
 
+/* size_t can't be negative */
+
+void	ft_memchr_negative_len(void)
+{
+	char	*str = "Hello World";
+
+	TEST_ASSERT_EQUAL_PTR(memchr(str, 'W', -1), ft_memchr(str, 'W', -1));
+}
+
 /* -------------------------------------------------------------------------- */
 
 void	setUp(void)
@@ -65,5 +74,6 @@ int		main(void)
 	RUN_TEST(ft_memchr_not_found_len);
 	RUN_TEST(ft_memchr_unsigned_char);
 	RUN_TEST(ft_memchr_int_array);
+	RUN_TEST(ft_memchr_negative_len);
 	return (UNITY_END());
 }
