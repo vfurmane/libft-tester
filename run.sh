@@ -28,6 +28,8 @@ CHECKFILES=0
 # List of every function to test
 funcs=()
 
+# Intro message
+source scripts/intro.sh
 # Parse arguments
 source scripts/args.sh
 # Message functions
