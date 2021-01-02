@@ -30,10 +30,10 @@ funcs=()
 
 # Intro message
 source scripts/intro.sh
-# Parse arguments
-source scripts/args.sh
 # Message functions
 source scripts/put.sh
+# Parse arguments
+source scripts/args.sh
 
 if [ ${#funcs[@]} -eq 0 ]
 then

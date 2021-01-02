@@ -22,6 +22,10 @@ do
 		-c|--check-files)
 		CHECKFILES=1
 		shift;;
+		-h|--help)
+		printf "version %s\n\n" $(git describe --tags 2> /dev/null || echo "0")
+		usage
+		shift;;
 		*)
 		break;;
 	esac

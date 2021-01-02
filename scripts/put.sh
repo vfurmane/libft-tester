@@ -23,3 +23,13 @@ function warn()
 {
 	printf "\033[33m$1\033[0m\n"
 }
+
+function usage()
+{
+	printf "%-13s./run.sh [-c|--no-logs]\n\n" "Usage:"
+	printf "options:\n"
+	printf "%-13sCheck that the tested function is in the right file.\n" "c"
+	printf "%-13sDo not display error logs if a test fails.\n" "no-logs"
+	printf "\n"
+	exit 0;
+}
