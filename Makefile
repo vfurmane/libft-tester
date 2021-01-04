@@ -6,7 +6,7 @@
 #    By: vfurmane <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/30 19:06:20 by vfurmane          #+#    #+#              #
-#    Updated: 2021/01/02 09:54:04 by vfurmane         ###   ########.fr        #
+#    Updated: 2021/01/04 19:52:19 by vfurmane         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,7 @@ OBJS		= $(SRCS:.c=.o)
 EXEC		= $(OBJS:.o=.out)
 INCL		= test/includes
 LIBFT		= ../libft
-CC			= gcc
+CC			= clang
 CFLAGS		= -Wall -Wextra -Werror
 CP			= cp -f
 RM			= rm -f
