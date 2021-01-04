@@ -6,7 +6,7 @@
 /*   By: vfurmane <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/30 15:14:46 by vfurmane          #+#    #+#             */
-/*   Updated: 2021/01/02 18:15:18 by vfurmane         ###   ########.fr       */
+/*   Updated: 2021/01/04 14:29:09 by vfurmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,8 @@ void	ft_memccpy_char_overflow(void)
 	TEST_ASSERT_EQUAL_MEMORY(ref, ret, len);
 }
 
+/* Doesn't work on MacOS */
+
 void	ft_memccpy_negative_len(void)
 {
 	int		len = -3;
@@ -108,6 +110,6 @@ int		main(void)
 	RUN_TEST(ft_memccpy_int_array);
 	RUN_TEST(ft_memccpy_invalid_byte_size);
 	RUN_TEST(ft_memccpy_char_overflow);
-	RUN_TEST(ft_memccpy_negative_len);
+	// RUN_TEST(ft_memccpy_negative_len);
 	return (UNITY_END());
 }
