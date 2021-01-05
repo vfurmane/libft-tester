@@ -53,6 +53,10 @@ for func in ${funcs[@]}
 do
 	if [ $MAKEALL -eq 0 ]
 	then
+		if ! ls test/tests/ft_$func\_test.c > /dev/null 2>&1
+		then
+			error "$func - No such test file"
+		fi
 		make test/tests/ft_$func\_test.out > /dev/null 2>&1 || error "Error when compiling $func"
 	fi
 	# Check that the script exists or not
