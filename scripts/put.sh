@@ -24,12 +24,18 @@ function warn()
 	printf "\033[33m$1\033[0m\n"
 }
 
+function info()
+{
+	printf "\033[34m$1\033[0m\n"
+}
+
 function usage()
 {
-	printf "%-13s./run.sh [-c|-h|--no-logs]\n\n" "Usage:"
+	printf "%-13s./run.sh [-c|-h|--no-compile|--no-logs]\n\n" "Usage:"
 	printf "options:\n"
 	printf "%-13sCheck that the tested function is in the right file.\n" "c"
 	printf "%-13sDisplay a help message.\n" "h"
+	printf "%-13sDo not compile the Libft.\n" "no-compile"
 	printf "%-13sDo not display error logs if a test fails.\n" "no-logs"
 	printf "\n"
 	exit 0;

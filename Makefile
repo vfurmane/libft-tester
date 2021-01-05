@@ -6,7 +6,7 @@
 #    By: vfurmane <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/30 19:06:20 by vfurmane          #+#    #+#              #
-#    Updated: 2021/01/04 19:52:19 by vfurmane         ###   ########.fr        #
+#    Updated: 2021/01/05 17:12:25 by vfurmane         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -41,6 +41,9 @@ re:			fclean all
 
 checkfile:
 			ls $(LIBFT)/$(FILE)
+
+libft:
+			cd $(LIBFT) && make
 
 .PHONY:		all clean fclean re checkfile
 .SECONDARY:	$(OBJS)
