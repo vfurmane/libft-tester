@@ -24,6 +24,8 @@ cd "$(dirname "$0")"
 NOLOGS=0
 # Check that all the files are present
 CHECKFILES=0
+# Compile all tests
+MAKEALL=0
 
 # List of every function to test
 funcs=()
@@ -38,16 +40,21 @@ source scripts/args.sh
 if [ ${#funcs[@]} -eq 0 ]
 then
 	funcs=$(find test/tests -maxdepth 1 -name "ft_*_test.c" -exec sh -c "basename {} | cut -d_ -f2" \; | sort)
+
+	# Compile all the tests
+	make all > /dev/null 2>&1 || error "Error when compiling the tests"
+	MAKEALL=1
 fi
 
 # Create the directory for test scripts and logs
 mkdir -p logs
 
-# Compile all the tests
-make all > /dev/null 2>&1 || error "Error when compiling the tests"
-
 for func in ${funcs[@]}
 do
+	if [ $MAKEALL -eq 0 ]
+	then
+		make test/tests/ft_$func\_test.out > /dev/null 2>&1 || error "Error when compiling $func"
+	fi
 	# Check that the script exists or not
 	if ls outs/ft_$func\_test.out > /dev/null 2>&1
 	then
