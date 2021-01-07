@@ -28,6 +28,8 @@ CHECKFILES=0
 MAKEALL=0
 # Do not compile libft
 NOCOMPILE=0
+# Maximum depth to search test scripts (run bonuses or not)
+MAXDEPTH=1
 
 # List of every function to test
 funcs=()
@@ -50,7 +52,11 @@ fi
 if [ ${#funcs[@]} -eq 0 ]
 then
 	info "Compiling the test scripts..."
-	funcs=$(find test/tests -maxdepth 1 -name "ft_*_test.c" -exec sh -c "basename {} | cut -d_ -f2" \; | sort)
+	funcs=$(find test/tests -maxdepth $MAXDEPTH -name "ft_*_test.c" -exec sh -c "basename {} | cut -d_ -f2" \; | sort)
+	if [ $MAXDEPTH -eq 2 ]
+	then
+		make bonus > /dev/null 2>&1 || error "Error when compiling bonus tests."
+	fi
 
 	# Compile all the tests
 	make all > /dev/null 2>&1 || error "Error when compiling the tests."
@@ -69,9 +75,14 @@ do
 	then
 		if ! ls test/tests/ft_$func\_test.c > /dev/null 2>&1
 		then
-			error "$func - No such test script."
+			if ! ls test/tests/bonus/ft_$func\_test.c > /dev/null 2>&1
+			then
+				error "$func - No such test script."
+			fi
+			make test/tests/bonus/ft_$func\_test.out > /dev/null 2>&1 || error "Error when compiling $func."
+		else
+			make test/tests/ft_$func\_test.out > /dev/null 2>&1 || error "Error when compiling $func."
 		fi
-		make test/tests/ft_$func\_test.out > /dev/null 2>&1 || error "Error when compiling $func."
 	fi
 	# Check that the script exists or not
 	if ls outs/ft_$func\_test.out > /dev/null 2>&1

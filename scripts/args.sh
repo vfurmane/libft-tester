@@ -19,6 +19,9 @@ do
 		--no-logs)
 		NOLOGS=1
 		shift;;
+		-b|--bonus)
+		MAXDEPTH=2
+		shift;;
 		-c|--check-files)
 		CHECKFILES=1
 		shift;;
