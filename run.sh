@@ -46,10 +46,7 @@ if [ $NOCOMPILE -eq 0 ]
 then
 	info "Compiling Libft..."
 	make libft > /dev/null 2>&1 || error "Error when compiling Libft."
-	if [ $MAXDEPTH -eq 2 ]
-	then
-		make bon_libft > /dev/null 2>&1 || error "Error when compiling Libft bonus."
-	fi
+	make bon_libft > /dev/null 2>&1 || error "Cannot compile Libft bonus."
 fi
 
 # Compile the test scripts
@@ -83,7 +80,7 @@ do
 			then
 				error "$func - No such test script."
 			fi
-			make test/tests/bonus/ft_$func\_test.out > /dev/null 2>&1 || error "Error when compiling $func."
+			make test/tests/bonus/ft_$func\_test.out > /dev/null 2>&1 || error "Error when compiling bonus $func."
 		else
 			make test/tests/ft_$func\_test.out > /dev/null 2>&1 || error "Error when compiling $func."
 		fi
