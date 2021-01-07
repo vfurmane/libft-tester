@@ -6,7 +6,7 @@
 #    By: vfurmane <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/30 19:06:20 by vfurmane          #+#    #+#              #
-#    Updated: 2021/01/07 12:05:09 by vfurmane         ###   ########.fr        #
+#    Updated: 2021/01/07 12:25:14 by vfurmane         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -49,6 +49,9 @@ checkfile:
 
 libft:
 			cd $(LIBFT) && make
+
+bon_libft:
+			cd $(LIBFT) && make bonus
 
 .PHONY:		all clean fclean re checkfile
 .SECONDARY:	$(OBJS)

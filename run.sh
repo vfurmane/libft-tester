@@ -46,6 +46,10 @@ if [ $NOCOMPILE -eq 0 ]
 then
 	info "Compiling Libft..."
 	make libft > /dev/null 2>&1 || error "Error when compiling Libft."
+	if [ $MAXDEPTH -eq 2 ]
+	then
+		make bon_libft > /dev/null 2>&1 || error "Error when compiling Libft bonus."
+	fi
 fi
 
 # Compile the test scripts
