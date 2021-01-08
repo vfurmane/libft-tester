@@ -6,7 +6,7 @@
 /*   By: vfurmane <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/30 15:14:46 by vfurmane          #+#    #+#             */
-/*   Updated: 2020/12/31 15:44:06 by vfurmane         ###   ########.fr       */
+/*   Updated: 2021/01/08 11:58:09 by vfurmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,6 +61,20 @@ void	ft_atoi_int_limit(void)
 	TEST_ASSERT_EQUAL_INT(atoi(str), ft_atoi(str));
 }
 
+void	ft_atoi_plus_minus(void)
+{
+	char	*str = "+-42";
+
+	TEST_ASSERT_EQUAL_INT(atoi(str), ft_atoi(str));
+}
+
+void	ft_atoi_plus_plus(void)
+{
+	char	*str = "++42";
+
+	TEST_ASSERT_EQUAL_INT(atoi(str), ft_atoi(str));
+}
+
 /* -------------------------------------------------------------------------- */
 
 void	setUp(void)
@@ -81,5 +95,7 @@ int		main(void)
 	RUN_TEST(ft_atoi_whitespaces);
 	RUN_TEST(ft_atoi_invalid_number);
 	RUN_TEST(ft_atoi_int_limit);
+	RUN_TEST(ft_atoi_plus_minus);
+	RUN_TEST(ft_atoi_plus_plus);
 	return (UNITY_END());
 }

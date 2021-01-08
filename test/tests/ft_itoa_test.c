@@ -6,7 +6,7 @@
 /*   By: vfurmane <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/30 15:14:46 by vfurmane          #+#    #+#             */
-/*   Updated: 2021/01/06 14:31:43 by vfurmane         ###   ########.fr       */
+/*   Updated: 2021/01/08 12:43:33 by vfurmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,13 @@ void	ft_itoa_big_number(void)
 	TEST_ASSERT_EQUAL_STRING("2147483647", ft_itoa(nbr));
 }
 
+void	ft_itoa_negative_overflow(void)
+{
+	int	nbr = -2147483648LL;
+
+	TEST_ASSERT_EQUAL_STRING("-2147483648", ft_itoa(nbr));
+}
+
 /* -------------------------------------------------------------------------- */
 
 void	setUp(void)
@@ -49,5 +56,6 @@ int		main(void)
 	RUN_TEST(ft_itoa_basic);
 	RUN_TEST(ft_itoa_negative);
 	RUN_TEST(ft_itoa_big_number);
+	RUN_TEST(ft_itoa_negative_overflow);
 	return (UNITY_END());
 }
