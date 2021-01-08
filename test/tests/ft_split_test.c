@@ -6,7 +6,7 @@
 /*   By: vfurmane <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/30 15:14:46 by vfurmane          #+#    #+#             */
-/*   Updated: 2021/01/06 13:52:36 by vfurmane         ###   ########.fr       */
+/*   Updated: 2021/01/08 14:31:08 by vfurmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 char	*ref[5] = { "Hello", "World", "and", "42", NULL };
 char	*ref2[2] = { "Hello World and 42", NULL };
+char	*ref3[13] = { "lorem", "ipsum", "dolor", "sit", "amet,", "consectetur", "adipiscing", "elit.", "Sed", "non", "risus.", "Suspendisse", NULL };
 char	**ret;
 
 int		ft_arrlen(char **arr)
@@ -62,6 +63,15 @@ void	ft_split_zero_sep(void)
 	TEST_ASSERT_EQUAL_STRING_ARRAY(ref2, ret, ft_arrlen(ret) + 1);
 }
 
+void	ft_split_test(void)
+{
+	char	*str = "lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus. Suspendisse";
+	char	sep = ' ';
+
+	ret = ft_split(str, sep);
+	TEST_ASSERT_EQUAL_STRING_ARRAY(ref3, ret, ft_arrlen(ret) + 1);
+}
+
 /* -------------------------------------------------------------------------- */
 
 void	setUp(void)
@@ -89,5 +99,6 @@ int		main(void)
 	RUN_TEST(ft_split_long_sep);
 	RUN_TEST(ft_split_no_sep);
 	RUN_TEST(ft_split_zero_sep);
+	RUN_TEST(ft_split_test);
 	return (UNITY_END());
 }
