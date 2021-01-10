@@ -6,7 +6,7 @@
 /*   By: vfurmane <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/30 15:52:15 by vfurmane          #+#    #+#             */
-/*   Updated: 2021/01/07 11:56:44 by vfurmane         ###   ########.fr       */
+/*   Updated: 2021/01/10 21:45:05 by vfurmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,14 @@
 # define TESTS_H
 
 # include <ctype.h>
+# include <stdio.h>
 # include <string.h>
 # include <stdlib.h>
 # include "libft.h"
 # include "unity.h"
+
+char	*strnstr(const char *big, const char *little, size_t len);
+size_t	strlcpy(char *dst, const char *src, size_t size);
+size_t	strlcat(char *dst, const char *src, size_t size);
 
 #endif
