@@ -6,7 +6,7 @@
 #    By: vfurmane <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/30 19:06:20 by vfurmane          #+#    #+#              #
-#    Updated: 2021/01/10 21:48:01 by vfurmane         ###   ########.fr        #
+#    Updated: 2021/01/10 22:41:47 by vfurmane         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,6 +17,7 @@ BON_OBJS		= $(BON_SRCS:.c=.o)
 EXEC			= $(patsubst test/tests/%, outs/%, $(OBJS:.o=.out))
 BON_EXEC		= $(patsubst test/tests/bonus/%, outs/%, $(BON_OBJS:.o=.out))
 INCL			= test/includes
+LIB				= 
 LIBFT			= ../libft
 CC				= clang
 CFLAGS			= -Wall -Wextra -Werror
@@ -29,7 +30,7 @@ MKDIR			= mkdir -p
 				$(CC) $(CFLAGS) -c $< -I $(INCL) -o $@
 
 outs/%.out:		test/tests/%.o
-				$(CC) $(CFLAGS) $< test/unity/unity.c -I $(INCL) -lbsd -L$(LIBFT) -lft -o outs/$(notdir $@)
+				$(CC) $(CFLAGS) $< test/unity/unity.c -I $(INCL) $(LIB) -L$(LIBFT) -lft -o outs/$(notdir $@)
 
 outs/%.out:		test/tests/bonus/%.o
 				$(CC) $(CFLAGS) $< test/unity/unity.c -I $(INCL) -L$(LIBFT) -lft -o outs/$(notdir $@)
