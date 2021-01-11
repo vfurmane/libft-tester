@@ -6,7 +6,7 @@
 /*   By: vfurmane <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/30 15:14:46 by vfurmane          #+#    #+#             */
-/*   Updated: 2021/01/06 17:54:06 by vfurmane         ###   ########.fr       */
+/*   Updated: 2021/01/11 17:24:43 by vfurmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,15 @@ void	ft_putendl_fd_basic(void)
 	/* -------------------------------- */
 	char	buffer[13];
 	int		out_pipe[2];
-	int		saved_stdout;
 
-	saved_stdout = dup(STDOUT_FILENO);
-	if (pipe(out_pipe) != 0)
-		exit(1);
-	dup2(out_pipe[1], STDOUT_FILENO);
-	close(out_pipe[1]);
+	pipe(out_pipe);
 	/* -------------------------------- */
-	ft_putendl_fd(str, 1);
+	ft_putendl_fd(str, out_pipe[1]);
 	/* -------------------------------- */
-	fflush(stdout);
 	read(out_pipe[0], buffer, 12);
 	buffer[12] = '\0';
-	dup2(saved_stdout, STDOUT_FILENO);
+	close(out_pipe[0]);
+	close(out_pipe[1]);
 	TEST_ASSERT_EQUAL_STRING("Hello World\n", buffer);
 }
 

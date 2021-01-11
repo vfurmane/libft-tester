@@ -53,7 +53,7 @@ fi
 if [ ${#funcs[@]} -eq 0 ]
 then
 	info "Compiling the test scripts..."
-	funcs=$(find test/tests -maxdepth $MAXDEPTH -name "ft_*_test.c" -exec sh -c "basename {} | cut -d_ -f2" \; | sort)
+	funcs=$(find test/tests -maxdepth $MAXDEPTH -name "ft_*_test.c" -exec sh -c "basename {} | sed 's/^ft_//' | sed 's/_test\.c$//'" \; | sort)
 	if [ $MAXDEPTH -eq 2 ]
 	then
 		make bonus > /dev/null 2>&1 || error "Error when compiling bonus tests."
