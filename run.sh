@@ -30,9 +30,16 @@ MAKEALL=0
 NOCOMPILE=0
 # Maximum depth to search test scripts (run bonuses or not)
 MAXDEPTH=1
+# The OS is Linux-based
+LINUX=0
+# Specified libs
+LIB=""
 
 # List of every function to test
 funcs=()
+
+# List of functions that may fail on Linux
+fail_funcs=("isalnum" "isalpha" "isdigit" "isprint" "tolower" "toupper")
 
 # Intro message
 source scripts/intro.sh
@@ -45,8 +52,8 @@ source scripts/args.sh
 if [ $NOCOMPILE -eq 0 ]
 then
 	info "Compiling Libft..."
-	make libft > /dev/null 2>&1 || error "Error when compiling Libft."
-	make bon_libft > /dev/null 2>&1 || error "Cannot compile Libft bonus."
+	make libft LIB=$LIB > /dev/null 2>&1 || error "Error when compiling Libft."
+	make bon_libft LIB=$LIB > /dev/null 2>&1 || error "Cannot compile Libft bonus."
 fi
 
 # Compile the test scripts
@@ -56,11 +63,11 @@ then
 	funcs=$(find test/tests -maxdepth $MAXDEPTH -name "ft_*_test.c" -exec sh -c "basename {} | sed 's/^ft_//' | sed 's/_test\.c$//'" \; | sort)
 	if [ $MAXDEPTH -eq 2 ]
 	then
-		make bonus > /dev/null 2>&1 || error "Error when compiling bonus tests."
+		make bonus LIB=$LIB > /dev/null 2>&1 || error "Error when compiling bonus tests."
 	fi
 
 	# Compile all the tests
-	make all > /dev/null 2>&1 || error "Error when compiling the tests."
+	make all LIB=$LIB > /dev/null 2>&1 || error "Error when compiling the tests."
 	MAKEALL=1
 else
 	info "Scripts will be compiled one by one..."
@@ -80,10 +87,14 @@ do
 			then
 				error "$func - No such test script."
 			fi
-			make outs/ft_$func\_test.out > /dev/null 2>&1 || error "Error when compiling bonus $func."
+			make outs/ft_$func\_test.out LIB=$LIB > /dev/null 2>&1 || error "Error when compiling bonus $func."
 		else
-			make outs/ft_$func\_test.out > /dev/null 2>&1 || error "Error when compiling $func."
+			make outs/ft_$func\_test.out LIB=$LIB > /dev/null 2>&1 || error "Error when compiling $func."
 		fi
+	fi
+	if [ $LINUX -eq 1 ]
+	then
+		case "${fail_funcs[@]}" in *"$func"*) warn "This test may fail on Linux-based systems..." ;; esac
 	fi
 	# Check that the script exists or not
 	if ls outs/ft_$func\_test.out > /dev/null 2>&1

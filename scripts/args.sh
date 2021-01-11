@@ -29,6 +29,10 @@ do
 		printf "version %s\n\n" $(git describe --tags 2> /dev/null || echo "0")
 		usage
 		shift;;
+		-l|--linux)
+		LINUX=1
+		LIB="-lbsd"
+		shift;;
 		--no-compile)
 		NOCOMPILE=1
 		shift;;
