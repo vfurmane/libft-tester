@@ -6,7 +6,7 @@
 #    By: vfurmane <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/30 19:06:20 by vfurmane          #+#    #+#              #
-#    Updated: 2021/01/10 22:41:47 by vfurmane         ###   ########.fr        #
+#    Updated: 2021/01/11 19:20:52 by vfurmane         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -30,17 +30,15 @@ MKDIR			= mkdir -p
 				$(CC) $(CFLAGS) -c $< -I $(INCL) -o $@
 
 outs/%.out:		test/tests/%.o
+				$(MKDIR) outs/
 				$(CC) $(CFLAGS) $< test/unity/unity.c -I $(INCL) $(LIB) -L$(LIBFT) -lft -o outs/$(notdir $@)
 
 outs/%.out:		test/tests/bonus/%.o
 				$(CC) $(CFLAGS) $< test/unity/unity.c -I $(INCL) -L$(LIBFT) -lft -o outs/$(notdir $@)
 
-all:			make_out $(EXEC)
+all:			$(EXEC)
 
-bonus:			make_out $(BON_EXEC)
-
-make_out:
-				$(MKDIR) outs/
+bonus:			$(BON_EXEC)
 
 clean:
 				$(RM) $(OBJS)
