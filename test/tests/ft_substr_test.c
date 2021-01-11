@@ -6,7 +6,7 @@
 /*   By: vfurmane <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/30 15:14:46 by vfurmane          #+#    #+#             */
-/*   Updated: 2021/01/06 11:09:39 by vfurmane         ###   ########.fr       */
+/*   Updated: 2021/01/11 18:52:26 by vfurmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,14 @@ void	ft_substr_too_long_len(void)
 	TEST_ASSERT_EQUAL_MEMORY("42", ret, 3);
 }
 
+void	ft_substr_start_after_end(void)
+{
+	char	*str = "Hello World";
+
+	ret = ft_substr(str, 12, 5);
+	TEST_ASSERT_EQUAL_MEMORY("", ret, 1);
+}
+
 /* -------------------------------------------------------------------------- */
 
 void	setUp(void)
@@ -55,5 +63,6 @@ int		main(void)
 	RUN_TEST(ft_substr_basic);
 	RUN_TEST(ft_substr_zero_len);
 	RUN_TEST(ft_substr_too_long_len);
+	RUN_TEST(ft_substr_start_after_end);
 	return (UNITY_END());
 }
