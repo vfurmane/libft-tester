@@ -120,7 +120,7 @@ At the end of all the arguments, you can specify functions name. This way, only 
 You can see this error message for several reasons:
 
 - Your **Libft**'s path in the **Makefile** is wrong.
-- There are missing functions in your **Libft**. Try specifying [functions name](#Functions name).
+- There are missing functions in your **Libft**. Try specifying [functions name](#Functions-name).
 - The **libft.h** file isn't in the **Libft**'s directory.
 - You are under Linux. Try configuring the script for [Linux](#Linux).
 
