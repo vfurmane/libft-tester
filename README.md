@@ -14,10 +14,10 @@ The file tree should look like this.
 
 ```
 .
-+--	libft
-	+--	libft.a
-	+--	libft.h
-+--	libft_tester
++-- libft
+    +-- libft.a
+    +-- libft.h
++-- libft_tester
 ```
 
 However, you can change the **Libft**'s path in the `Makefile`.
@@ -122,6 +122,7 @@ You can see this error message for several reasons:
 - Your **Libft**'s path in the **Makefile** is wrong.
 - There are missing functions in your **Libft**. Try specifying [functions name](#Functions name).
 - The **libft.h** file isn't in the **Libft**'s directory.
+- You are under Linux. Try configuring the script for [Linux](#Linux).
 
 To see what is wrong, try running `make`.
 
