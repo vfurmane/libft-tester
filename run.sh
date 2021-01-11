@@ -80,9 +80,9 @@ do
 			then
 				error "$func - No such test script."
 			fi
-			make test/tests/bonus/ft_$func\_test.out > /dev/null 2>&1 || error "Error when compiling bonus $func."
+			make outs/ft_$func\_test.out > /dev/null 2>&1 || error "Error when compiling bonus $func."
 		else
-			make test/tests/ft_$func\_test.out > /dev/null 2>&1 || error "Error when compiling $func."
+			make outs/ft_$func\_test.out > /dev/null 2>&1 || error "Error when compiling $func."
 		fi
 	fi
 	# Check that the script exists or not
