@@ -1,0 +1,4 @@
+logs
+outs
+test/tests/*.o
+test/includes/libft.h
