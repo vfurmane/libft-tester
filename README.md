@@ -36,19 +36,7 @@ The logs are stored in the `logs` directory. For example, if you want to see the
 
 ### Linux
 
-Even though this tester was made for MacOS, you can use it on Linux.
-
-In the **Makefile**, change the line :
-
-```make
-LIB = 
-```
-
-to :
-
-```make
-LIB = -lbsd
-```
+See [Linux in arguments](#-l----linux).
 
 > You need to have the package **libbsd-dev** installed. If not, run `sudo apt install libbsd-dev`
 
@@ -104,6 +92,20 @@ By default, the script displays the logs in case of the test failed. You can dis
 Not sure I need to describe this one.
 
 > It prints a help message.
+
+#### -l | --linux
+
+Even though this tester was made for MacOS, you can use it on Linux.
+
+```shell
+./run.sh -l
+```
+
+If you want to compile by hand, using `make`, add `LIB=-lbsd`.
+
+```shell
+make all LIB=-lbsd
+```
 
 #### Functions name
 
