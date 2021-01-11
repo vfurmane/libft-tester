@@ -6,7 +6,7 @@
 /*   By: vfurmane <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/30 15:14:46 by vfurmane          #+#    #+#             */
-/*   Updated: 2021/01/06 10:35:08 by vfurmane         ###   ########.fr       */
+/*   Updated: 2021/01/11 19:31:58 by vfurmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_strlcat_basic(void)
 	char	ref[12] = "Hello ";
 
 	TEST_ASSERT_EQUAL_INT(strlcat(ref, str, 12), ft_strlcat(ret, str, 12));
-	TEST_ASSERT_EQUAL_MEMORY(ref, ret, 12);
+	TEST_ASSERT_EQUAL_STRING(ref, ret);
 }
 
 void	ft_strlcat_overflow(void)
@@ -29,7 +29,7 @@ void	ft_strlcat_overflow(void)
 	char	ref[12] = "Salut";
 
 	TEST_ASSERT_EQUAL_INT(strlcat(ref, str, 10), ft_strlcat(ret, str, 10));
-	TEST_ASSERT_EQUAL_MEMORY(ref, ret, 12);
+	TEST_ASSERT_EQUAL_STRING(ref, ret);
 }
 
 void	ft_strlcat_no_copy(void)
@@ -39,7 +39,7 @@ void	ft_strlcat_no_copy(void)
 	char	ref[12] = "Salut";
 
 	TEST_ASSERT_EQUAL_INT(strlcat(ref, str, 2), ft_strlcat(ret, str, 2));
-	TEST_ASSERT_EQUAL_MEMORY(ref, ret, 12);
+	TEST_ASSERT_EQUAL_STRING(ref, ret);
 }
 
 void	ft_strlcat_short_len(void)
@@ -49,7 +49,7 @@ void	ft_strlcat_short_len(void)
 	char	ref[12] = "Salut";
 
 	TEST_ASSERT_EQUAL_INT(strlcat(ref, str, 6), ft_strlcat(ret, str, 6));
-	TEST_ASSERT_EQUAL_MEMORY(ref, ret, 12);
+	TEST_ASSERT_EQUAL_STRING(ref, ret);
 }
 
 void	ft_strlcat_zero_len(void)
@@ -59,7 +59,7 @@ void	ft_strlcat_zero_len(void)
 	char	ref[12] = "Salut";
 
 	TEST_ASSERT_EQUAL_INT(strlcat(ref, str, 0), ft_strlcat(ret, str, 0));
-	TEST_ASSERT_EQUAL_MEMORY(ref, ret, 12);
+	TEST_ASSERT_EQUAL_STRING(ref, ret);
 }
 
 /* -------------------------------------------------------------------------- */

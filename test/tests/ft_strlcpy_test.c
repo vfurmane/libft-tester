@@ -6,7 +6,7 @@
 /*   By: vfurmane <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/30 15:14:46 by vfurmane          #+#    #+#             */
-/*   Updated: 2021/01/06 10:22:23 by vfurmane         ###   ########.fr       */
+/*   Updated: 2021/01/11 19:33:05 by vfurmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	ft_strlcpy_basic(void)
 	bzero(ref, 12);
 	bzero(ret, 12);
 	TEST_ASSERT_EQUAL_INT(strlcpy(ref, str, 12), ft_strlcpy(ret, str, 12));
-	TEST_ASSERT_EQUAL_MEMORY(ref, ret, 12);
+	TEST_ASSERT_EQUAL_STRING(ref, ret);
 }
 
 void	ft_strlcpy_incomplete_str(void)
@@ -33,7 +33,7 @@ void	ft_strlcpy_incomplete_str(void)
 	bzero(ref, 6);
 	bzero(ret, 6);
 	TEST_ASSERT_EQUAL_INT(strlcpy(ref, str, 6), ft_strlcpy(ret, str, 6));
-	TEST_ASSERT_EQUAL_MEMORY(ref, ret, 6);
+	TEST_ASSERT_EQUAL_STRING(ref, ret);
 }
 
 void	ft_strlcpy_zero_len(void)
@@ -45,7 +45,7 @@ void	ft_strlcpy_zero_len(void)
 	bzero(ref, 12);
 	bzero(ret, 12);
 	TEST_ASSERT_EQUAL_INT(strlcpy(ref, str, 0), ft_strlcpy(ret, str, 0));
-	TEST_ASSERT_EQUAL_MEMORY(ref, ret, 12);
+	TEST_ASSERT_EQUAL_STRING(ref, ret);
 }
 
 /* -------------------------------------------------------------------------- */
