@@ -73,11 +73,13 @@ If you want to check that the file exists in the **Libft**'s directory, you can 
 
 #### --no-compile
 
-Do not compile the **Libft**.
+Do not compile the **Libft**. This argument also **fclean** the tests.
 
 ```shell
 ./run.sh --no-compile
 ```
+
+> Using this argument increase the speed of the tester, but may break it if you edit your **Libft**.
 
 #### --no-logs
 
