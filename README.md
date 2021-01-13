@@ -7,7 +7,7 @@ This repo provides test scripts for your **Libft** (first project at 42 School).
 First things first, clone this repo alongside the **Libft**'s directory.
 
 ```shell
-git clone https://github.com/valfur03/libft_tester
+git clone https://github.com/vfurmane/libft-tester
 ```
 
 The file tree should look like this.

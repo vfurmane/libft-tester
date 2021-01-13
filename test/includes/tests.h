@@ -6,7 +6,7 @@
 /*   By: vfurmane <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/30 15:52:15 by vfurmane          #+#    #+#             */
-/*   Updated: 2021/01/10 21:45:05 by vfurmane         ###   ########.fr       */
+/*   Updated: 2021/01/13 10:53:30 by vfurmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,8 @@
 # include "libft.h"
 # include "unity.h"
 
-char	*strnstr(const char *big, const char *little, size_t len);
-size_t	strlcpy(char *dst, const char *src, size_t size);
-size_t	strlcat(char *dst, const char *src, size_t size);
+//char	*strnstr(const char *big, const char *little, size_t len);
+//size_t	strlcpy(char *dst, const char *src, size_t size);
+//size_t	strlcat(char *dst, const char *src, size_t size);
 
 #endif
