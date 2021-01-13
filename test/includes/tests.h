@@ -6,7 +6,7 @@
 /*   By: vfurmane <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/30 15:52:15 by vfurmane          #+#    #+#             */
-/*   Updated: 2021/01/13 11:05:26 by vfurmane         ###   ########.fr       */
+/*   Updated: 2021/01/13 17:34:57 by vfurmane         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 # include "libft.h"
 # include "unity.h"
 
-# if __LINUX__
+# if __linux__
 
 #  include <bsd/string.h>
 
