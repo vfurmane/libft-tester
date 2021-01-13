@@ -53,7 +53,7 @@ if [ $NOCOMPILE -eq 0 ]
 then
 	info "Compiling Libft..."
 	make libft LIB=$LIB > /dev/null 2>&1 || error "Error when compiling Libft."
-	make bon_libft LIB=$LIB > /dev/null 2>&1 || error "Cannot compile Libft bonus."
+	make bon_libft LIB=$LIB > /dev/null 2>&1 || warn "Cannot compile Libft bonus."
 fi
 
 # Compile the test scripts
